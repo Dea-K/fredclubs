@@ -218,6 +218,7 @@
         android:textColor="@color/white"
         android:text="@string/register"
         android:textSize="30sp"
+        android:onClick="registerUser"
         android:layout_gravity="center"/>
 
 </LinearLayout>

@@ -85,7 +85,7 @@
         android:background="@color/buttonGreen"
         android:textColor="@color/white"
         android:text="Sign in"
-        android:textSize="24sp"/>
+        android:textSize="24sp" />
     <Button
         android:layout_marginTop="15dp"
         android:layout_width="250dp"
