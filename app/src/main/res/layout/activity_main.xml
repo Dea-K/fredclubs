@@ -43,10 +43,9 @@
             android:textSize="24sp"
             android:gravity="center"
             android:textAlignment="center"
-            android:text="@string/username"
-            android:textColor="@color/white"
-            android:background="@color/back"/>
+            android:text="@string/username"/>
         <EditText
+            android:id="@+id/username_login"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -68,10 +67,9 @@
             android:gravity="center"
             android:textAlignment="center"
             android:textSize="24sp"
-            android:textColor="@color/white"
-            android:background="@color/back"
             android:text="@string/password"/>
         <EditText
+            android:id="@+id/password_login"
             android:inputType="textPassword"
             android:layout_width="0dp"
             android:layout_height="match_parent"

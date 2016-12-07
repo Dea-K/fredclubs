@@ -26,7 +26,7 @@ public class UserHelper {
     }
 
     public static void CreateUser(String username, String password, String confirm, String firstName,
-                                  String lastName, String position, String academicYear) throws Exception{
+                                  String lastName, String club, String position, String academicYear) throws Exception{
         if(username.length() < 5) {
             throw new Exception("Username must be at least 5 characters long");
         } else if(password.length() <4) {
@@ -36,7 +36,7 @@ public class UserHelper {
         } else if(!password.equals(confirm)) {
             throw new Exception("Password does not match the confirm");
         }
-        db.createUser(username, password, firstName, lastName, position, academicYear);
+        db.createUser(username, password, firstName, lastName, club, position, academicYear);
     }
 
 
