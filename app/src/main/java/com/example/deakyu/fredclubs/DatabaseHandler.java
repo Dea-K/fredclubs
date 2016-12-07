@@ -16,7 +16,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, "
         + "username TEXT, password TEXT, lastName TEXT, firstName TEXT, club TEXT position TEXT, "
-        + "academicYear TEXT");
+        + "academicYear TEXT)");
     }
     // '2007-01-01 10:00:00' datetime format
 
@@ -59,10 +59,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT username FROM users", null);
         if(cursor.moveToFirst()) {
-            if(cursor.getString(0) == username) {
-                result = true;
+                do {
+                    if (cursor.getString(0) == username) {
+                        result = true;
+                    }
+                } while(cursor.moveToNext());
             }
-        }
+        cursor.close();
         return result;
     }
 }

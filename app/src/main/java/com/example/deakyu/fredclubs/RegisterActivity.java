@@ -57,7 +57,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         String positionValue = positionSpinner.getSelectedItem().toString();
 
         // confirm if the username already exists
-        if(db.isExistingUsername(etUsername.getText().toString())) {
+        boolean isUsernameValid = db.isExistingUsername(usernameValue);
+        if(isUsernameValid) {
             Toast.makeText(this, "That username already exists", Toast.LENGTH_SHORT).show();
         } else {
             // confirm the passwords from both fields match
