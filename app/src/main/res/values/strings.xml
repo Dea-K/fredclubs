@@ -16,5 +16,7 @@
         <item>Treasurer</item>
         <item>Public Relations</item>
     </string-array>
+    <string name="title_activity_meeting_register">MeetingRegisterActivity</string>
+    <string name="sign_out">Sign Out</string>
 
 </resources>

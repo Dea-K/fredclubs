@@ -29,4 +29,9 @@ public class MainActivity extends AppCompatActivity {
         startActivityForResult(intent, 1);
         // 1 -> id for RegisterActivity
     }
+
+    public void startMeeting(View view) {
+        Intent intent = new Intent(this, MeetingRegisterActivity.class);
+        startActivity(intent);
+    }
 }
