@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FredClubs</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string-array name="year">
+        <item>Freshmen</item>
+        <item>Sophomore</item>
+        <item>Junior</item>
+        <item>Senior</item>
+    </string-array>
+    <string-array name="position">
+        <item>President</item>
+        <item>Vice President</item>
+        <item>Secretary</item>
+        <item>Treasurer</item>
+        <item>Public Relations</item>
+    </string-array>
+</resources>

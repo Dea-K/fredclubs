@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="fred">#023FB2</color>
+    <color name="white">#FFFFFF</color>
+    <color name="back">#82a2d6</color>
+    <color name="editField">#f6ff5e</color>
+    <color name="spinnerColor">#e5e8b7</color>
+    <color name="buttonBlue">#008CBA</color>
+    <color name="buttonGreen">#4CAF50</color>
+</resources>
