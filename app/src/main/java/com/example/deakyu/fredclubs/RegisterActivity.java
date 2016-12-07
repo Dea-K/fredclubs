@@ -1,6 +1,9 @@
 package com.example.deakyu.fredclubs;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.icu.util.GregorianCalendar;
+import android.provider.CalendarContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -93,4 +96,9 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     }
 
 
+    public void testCalendar(View view) {
+        Intent intent = new Intent(Intent.ACTION_INSERT);
+        intent.setData(CalendarContract.Events.CONTENT_URI);
+        startActivity(intent);
+    }
 }
