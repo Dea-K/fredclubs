@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:textSize="24sp"
+            android:textSize="36sp"
             android:gravity="center"
             android:textAlignment="center"
             android:text="@string/username"/>
@@ -50,7 +50,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="18sp"/>
+            android:textSize="24sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -65,7 +65,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textSize="36sp"
             android:text="@string/password"/>
         <EditText
             android:id="@+id/password_login"
@@ -74,7 +74,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="14sp"/>
+            android:textSize="24sp"/>
     </LinearLayout>
     <Button
         android:layout_marginTop="30dp"
@@ -94,9 +94,4 @@
         android:text="@string/register"
         android:textSize="24sp"
         android:onClick="startRegister"/>
-    <Button
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="Testing Meeting"
-        android:onClick="startMeeting"/>
 </LinearLayout>

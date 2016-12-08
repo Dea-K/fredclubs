@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -31,18 +32,19 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
     private EditText meetingDate;
     private EditText meetingTime;
     private DatePickerDialog meetingDatePicker;
-    private SimpleDateFormat dateFomatter;
-    private SimpleDateFormat dayOfWeekFormatter;
+    public static SimpleDateFormat _dateFomatter;
+    public static SimpleDateFormat _dayOfWeekFormatter;
     private EditText meetingDetail;
     private EditText meetingClub;
     private EditText meetingTitle;
+    private TextView meetingUsername;
 
     // Values to be used for DB interactions
     protected int yearInput;
     protected int dayInput;
     protected int monthInput;
-    protected static int _minuteInput;
-    protected static int _hourInput;
+    public static int _minuteInput;
+    public static int _hourInput;
     protected String dayOfWeekInput;
     protected String detailInput;
     protected String titleInput;
@@ -56,8 +58,8 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        dateFomatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
-        dayOfWeekFormatter = new SimpleDateFormat("EEEE", Locale.US);
+        _dateFomatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        _dayOfWeekFormatter = new SimpleDateFormat("EEEE", Locale.US);
 
         meetingDate = (EditText) findViewById(R.id.etMeetingDate);
         meetingDate.setInputType(InputType.TYPE_NULL);
@@ -69,6 +71,8 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
         meetingDetail = (EditText) findViewById(R.id.register_detail);
         meetingClub = (EditText) findViewById(R.id.register_meetingClub);
         meetingTitle = (EditText) findViewById(R.id.register_meetingTitle);
+        meetingUsername = (TextView) findViewById(R.id.register_author);
+        meetingUsername.setText(_loggedUser.username);
 
         setDateTimeField();
 
@@ -94,7 +98,7 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
                 // set day of week
                 Date dayRegistered = new Date(year, month, dayOfMonth);
                 // Day of week as String with the first letter capitalized
-                String dayOfWeek = dayOfWeekFormatter.format(dayRegistered);
+                String dayOfWeek = _dayOfWeekFormatter.format(dayRegistered);
 
 
                 // Store them in protected variables
@@ -104,7 +108,7 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
                 dayOfWeekInput = dayOfWeek;
 
 
-                meetingDate.setText(dateFomatter.format(newDate.getTime()));
+                meetingDate.setText(_dateFomatter.format(newDate.getTime()));
                 meetingDate.setText(meetingDate.getText() + " (" + dayOfWeek + ")");
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));

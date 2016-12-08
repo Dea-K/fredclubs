@@ -32,11 +32,6 @@ public class MainActivity extends AppCompatActivity {
         // 1 -> id for RegisterActivity
     }
 
-    public void startMeeting(View view) {
-        Intent intent = new Intent(this, MeetingRegisterActivity.class);
-        startActivity(intent);
-    }
-
     public void login(View view) {
         EditText usernameField = (EditText) findViewById(R.id.username_login);
         EditText passwordField = (EditText) findViewById(R.id.password_login);

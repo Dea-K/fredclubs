@@ -1,5 +1,6 @@
 package com.example.deakyu.fredclubs;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,6 +13,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import static com.example.deakyu.fredclubs.MeetingRegisterActivity._dayOfWeekFormatter;
 import static com.example.deakyu.fredclubs.User._loggedUser;
 
 public class DisplayScheduleActivity extends AppCompatActivity {
@@ -36,6 +42,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
     private TextView txtSunday;
 
     private TextView txtUsername;
+    final Context context_this = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +53,17 @@ public class DisplayScheduleActivity extends AppCompatActivity {
 
         populateViews();
         txtUsername.setText( _loggedUser.username);
+        populateButtons();  // set texts for buttons as current week
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent registerSchedule = new Intent(context_this, MeetingRegisterActivity.class);
+                startActivity(registerSchedule);
             }
         });
+
     }
 
     @Override
@@ -99,6 +108,44 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         txtSunday = (TextView) findViewById(R.id.sunday_detail);
 
         txtUsername = (TextView) findViewById(R.id.display_username);
+    }
+
+    public void populateButtons() {
+        // get current week
+        Calendar currentDate = Calendar.getInstance();
+
+        /////////////////////////////////////////////////////////////////////////////////
+        currentDate.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        btnMonday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+                + " (Monday)");
+        /////////////////////////////////////////////////////////////////////////////////
+        currentDate.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
+        btnTuesday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+                + " (Tuesday)");
+        /////////////////////////////////////////////////////////////////////////////////
+        currentDate.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
+        btnWednesday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+                + " (Wednesday)");
+        /////////////////////////////////////////////////////////////////////////////////
+        currentDate.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
+        btnThursday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+                + " (Thursday)");
+        /////////////////////////////////////////////////////////////////////////////////
+        currentDate.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
+        btnFriday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+                + " (Friday)");
+        /////////////////////////////////////////////////////////////////////////////////
+        currentDate.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+        btnSaturday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+                + " (Saturday)");
+        /////////////////////////////////////////////////////////////////////////////////
+        currentDate.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+        btnSunday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+                + " (Sunday)");
+    }
+
+    public void populateSchedules() {
+        
     }
 
 }
