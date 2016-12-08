@@ -6,14 +6,30 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Deakyu on 11/23/2016.
  */
 
 public class DatabaseHandler extends SQLiteOpenHelper {
+
+    public static String[] _dayList = new String[7];
+
+
     public DatabaseHandler(Context context) {super(context, "FredClubs", null, 1);}
     @Override
     public void onCreate(SQLiteDatabase db) {
+        // populate static day array
+        _dayList[0] = "monday";
+        _dayList[1] = "tuesday";
+        _dayList[2] = "wednesday";
+        _dayList[3] = "thursday";
+        _dayList[4] = "friday";
+        _dayList[5] = "saturday";
+        _dayList[6] = "sunday";
+
         db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, "
         + "username TEXT, password TEXT, firstName TEXT, lastName TEXT, club TEXT, position TEXT, "
         + "academicYear TEXT)");

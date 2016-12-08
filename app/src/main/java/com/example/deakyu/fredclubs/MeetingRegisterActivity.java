@@ -18,6 +18,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import static android.R.attr.onClick;
@@ -30,6 +31,8 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
     private EditText meetingTime;
     private DatePickerDialog meetingDatePicker;
     private SimpleDateFormat dateFomatter;
+    private SimpleDateFormat dayOfWeekFormatter;
+    private EditText meetingDetail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,7 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
         setSupportActionBar(toolbar);
 
         dateFomatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
+        dayOfWeekFormatter = new SimpleDateFormat("EEEE", Locale.US);
 
         meetingDate = (EditText) findViewById(R.id.etMeetingDate);
         meetingDate.setInputType(InputType.TYPE_NULL);
@@ -46,6 +50,8 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
 
         meetingTime = (EditText) findViewById(R.id.etMeetingTime);
         meetingTime.setOnClickListener(this);
+
+        meetingDetail = (EditText) findViewById(R.id.register_detail);
 
         setDateTimeField();
 
@@ -68,7 +74,13 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, month, dayOfMonth);
+                // set day of week
+                Date today = new Date(year, month, dayOfMonth);
+                String dayOfWeek = dayOfWeekFormatter.format(today);
+
+
                 meetingDate.setText(dateFomatter.format(newDate.getTime()));
+                meetingDate.setText(meetingDate.getText() + " (" + dayOfWeek + ")");
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
     }

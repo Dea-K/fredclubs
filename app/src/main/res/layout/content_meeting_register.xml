@@ -26,7 +26,7 @@
             android:textSize="24sp"
             android:gravity="center" />
         <TextView
-            android:id="@+id/author_username"
+            android:id="@+id/register_author"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -46,6 +46,7 @@
             android:text="Meeting Title:"
             android:textSize="24sp"/>
         <EditText
+            android:id="@+id/register_meetingTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -100,6 +101,7 @@
         android:textSize="24sp"
         android:textAlignment="center"/>
     <EditText
+        android:id="@+id/register_detail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="4"
