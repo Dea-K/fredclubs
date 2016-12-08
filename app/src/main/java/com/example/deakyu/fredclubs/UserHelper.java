@@ -5,6 +5,8 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.deakyu.fredclubs.User._loggedUser;
+
 /**
  * Created by Deakyu on 11/23/2016.
  */
@@ -37,6 +39,16 @@ public class UserHelper {
             throw new Exception("Password does not match the confirm");
         }
         db.createUser(username, password, firstName, lastName, club, position, academicYear);
+    }
+
+    public static boolean authenticateUser(String username, String password) {
+        User user = db.getUserByName(username);
+        if(user != null && user.password.equals(password)) {
+            // set logged user
+            _loggedUser = user;
+            return true;
+        }
+        return false;
     }
 
 

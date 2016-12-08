@@ -18,5 +18,6 @@
     </string-array>
     <string name="title_activity_meeting_register">MeetingRegisterActivity</string>
     <string name="sign_out">Sign Out</string>
+    <string name="title_activity_display_schedule">DisplayScheduleActivity</string>
 
 </resources>

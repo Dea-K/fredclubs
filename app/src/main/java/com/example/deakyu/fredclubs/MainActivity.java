@@ -2,9 +2,11 @@ package com.example.deakyu.fredclubs;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,5 +35,21 @@ public class MainActivity extends AppCompatActivity {
     public void startMeeting(View view) {
         Intent intent = new Intent(this, MeetingRegisterActivity.class);
         startActivity(intent);
+    }
+
+    public void login(View view) {
+        EditText usernameField = (EditText) findViewById(R.id.username_login);
+        EditText passwordField = (EditText) findViewById(R.id.password_login);
+        String username = usernameField.getText().toString();
+        String password = passwordField.getText().toString();
+
+        if(UserHelper.authenticateUser(username, password)) {
+            Intent display = new Intent(this, DisplayScheduleActivity.class);
+            startActivity(display);
+        } else {
+//            Toast.makeText(this, "Login Failed, Please Try Agin", Toast.LENGTH_LONG).show();
+            Snackbar.make(view, "Login Failed, Please Try Again", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();
+        }
     }
 }

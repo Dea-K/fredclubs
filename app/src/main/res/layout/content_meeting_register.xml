@@ -22,6 +22,26 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:text="Author:"
+            android:textSize="24sp"
+            android:gravity="center" />
+        <TextView
+            android:id="@+id/author_username"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="24sp"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:gravity="center"
             android:text="Meeting Title:"
             android:textSize="24sp"/>
@@ -29,7 +49,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/editField"/>
+            android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,10 +63,13 @@
             android:gravity="center"
             android:text="Date:"
             android:textSize="24sp"/>
-        <DatePicker
+        <EditText
+            android:id="@+id/etMeetingDate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="Click to Pick Date"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,10 +83,13 @@
             android:text="Time:"
             android:textSize="24sp"
             android:gravity="center"/>
-        <TimePicker
+        <EditText
+            android:id="@+id/etMeetingTime"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:gravity="center"
+            android:hint="Click to Pick Time"/>
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
@@ -78,5 +104,16 @@
         android:layout_height="0dp"
         android:layout_weight="4"
         android:background="@color/spinnerColor"/>
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Setup Meeting!"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        android:onClick="cancelRegister"/>
 
 </LinearLayout>

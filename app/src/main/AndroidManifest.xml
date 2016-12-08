@@ -28,6 +28,10 @@
         <activity
             android:name=".MeetingRegisterActivity"
             android:label="@string/title_activity_meeting_register"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".DisplayScheduleActivity"
+            android:label="@string/title_activity_display_schedule"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

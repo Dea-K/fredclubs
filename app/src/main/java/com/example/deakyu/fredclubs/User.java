@@ -5,6 +5,8 @@ package com.example.deakyu.fredclubs;
  */
 
 public class User {
+    public static User _loggedUser;
+
     public int id;
     public String username;
     public String password;

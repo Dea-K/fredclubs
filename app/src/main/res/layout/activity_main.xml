@@ -18,7 +18,7 @@
         android:padding="5dp"
         android:gravity="center"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textSize="48sp"
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:background="@color/fred"/>
@@ -31,14 +31,14 @@
         <!--android:text="sign in failure"-->
         <!--android:textSize="24sp"/>-->
     <LinearLayout
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:layout_height="100dp"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:textSize="24sp"
             android:gravity="center"
@@ -46,23 +46,22 @@
             android:text="@string/username"/>
         <EditText
             android:id="@+id/username_login"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="18sp"
-            android:background="@color/editField"/>
+            android:textSize="18sp"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal">
+        android:layout_height="100dp"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
             android:textAlignment="center"
@@ -71,12 +70,11 @@
         <EditText
             android:id="@+id/password_login"
             android:inputType="textPassword"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="14sp"
-            android:background="@color/editField"/>
+            android:textSize="14sp"/>
     </LinearLayout>
     <Button
         android:layout_marginTop="30dp"
@@ -85,7 +83,8 @@
         android:background="@color/buttonGreen"
         android:textColor="@color/white"
         android:text="Sign in"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:onClick="login"/>
     <Button
         android:layout_marginTop="15dp"
         android:layout_width="250dp"

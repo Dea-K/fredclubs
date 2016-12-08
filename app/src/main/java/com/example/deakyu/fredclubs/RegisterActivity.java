@@ -65,7 +65,7 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
             Toast.makeText(this, "That username already exists", Toast.LENGTH_SHORT).show();
         } else {
             // confirm the passwords from both fields match
-            if(etPassword.getText().toString() == etConfirmPW.getText().toString()) {
+            if(etPassword.getText().toString() != etConfirmPW.getText().toString()) {
                 // Create User
                 try {
                     UserHelper.CreateUser(usernameValue, passwordValue, confirmPWValue, firstNameValue, lastNameValue, clubValue,

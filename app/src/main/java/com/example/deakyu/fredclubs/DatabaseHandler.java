@@ -14,9 +14,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public DatabaseHandler(Context context) {super(context, "FredClubs", null, 1);}
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        + "username TEXT, password TEXT, lastName TEXT, firstName TEXT, club TEXT position TEXT, "
+        db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + "username TEXT, password TEXT, firstName TEXT, lastName TEXT, club TEXT, position TEXT, "
         + "academicYear TEXT)");
+
+        db.execSQL("CREATE TABLE schedules (id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        + "author TEXT, date TEXT, time TEXT, title TEXT, club TEXT, user_id INTEGER, "
+        + "detail TEXT)");
     }
     // '2007-01-01 10:00:00' datetime format
 
@@ -46,8 +50,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username = '"
         + name + "'", null);
         if(cursor.moveToFirst()) {
-            User user = new User(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(4), cursor.getString(3)
-                    , cursor.getString(5), cursor.getString(6), cursor.getString(7));
+            User user = new User(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3)
+                    , cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
             return user;
         } else {
             return null;
