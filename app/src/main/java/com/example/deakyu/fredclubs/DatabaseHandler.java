@@ -22,29 +22,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         // populate static day array
-        _dayList[0] = "monday";
-        _dayList[1] = "tuesday";
-        _dayList[2] = "wednesday";
-        _dayList[3] = "thursday";
-        _dayList[4] = "friday";
-        _dayList[5] = "saturday";
-        _dayList[6] = "sunday";
+        _dayList[0] = "Monday";
+        _dayList[1] = "Tuesday";
+        _dayList[2] = "Wednesday";
+        _dayList[3] = "Thursday";
+        _dayList[4] = "Friday";
+        _dayList[5] = "Saturday";
+        _dayList[6] = "Sunday";
 
         db.execSQL("CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, "
         + "username TEXT, password TEXT, firstName TEXT, lastName TEXT, club TEXT, position TEXT, "
         + "academicYear TEXT)");
 
         db.execSQL("CREATE TABLE schedules (id INTEGER PRIMARY KEY AUTOINCREMENT, "
-        + "author TEXT, date TEXT, time TEXT, title TEXT, club TEXT, user_id INTEGER, "
-        + "detail TEXT)");
+        + "username TEXT, user_id INTEGER, year INTEGER, month INTEGER, day INTEGER, "
+        + "dayofweek TEXT, minute INTEGER, hour INTEGER, title TEXT, detail TEXT, club TEXT");
     }
-    // '2007-01-01 10:00:00' datetime format
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
-
     public void createUser(String username, String password, String firstName, String lastName,
                            String club, String position, String academicYear) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -58,6 +55,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cv.put("academicYear", academicYear);
 
         db.insert("users", null, cv);
+        db.close();
+    }
+
+    public void createSchedule(String username, int userId, int year, int month, int day, String dayofweek,
+                               int minute, int hour, String title, String detail, String club) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("username", username);
+        cv.put("user_id", userId);
+        cv.put("year", year);
+        cv.put("month", month);
+        cv.put("day", day);
+        cv.put("dayofweek", dayofweek);
+        cv.put("minute", minute);
+        cv.put("hour", hour);
+        cv.put("title", title);
+        cv.put("detail", detail);
+        cv.put("club", club);
+
+        db.insert("schedules", null, cv);
         db.close();
     }
 

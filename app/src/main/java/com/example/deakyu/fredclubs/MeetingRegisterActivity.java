@@ -24,6 +24,7 @@ import java.util.Locale;
 import static android.R.attr.onClick;
 import static android.R.attr.start;
 import static com.example.deakyu.fredclubs.User._loggedUser;
+import static com.example.deakyu.fredclubs.UserHelper.db;
 
 public class MeetingRegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -33,6 +34,20 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
     private SimpleDateFormat dateFomatter;
     private SimpleDateFormat dayOfWeekFormatter;
     private EditText meetingDetail;
+    private EditText meetingClub;
+    private EditText meetingTitle;
+
+    // Values to be used for DB interactions
+    protected int yearInput;
+    protected int dayInput;
+    protected int monthInput;
+    protected static int _minuteInput;
+    protected static int _hourInput;
+    protected String dayOfWeekInput;
+    protected String detailInput;
+    protected String titleInput;
+    protected String clubnameInput;
+    protected User registeringUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +67,8 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
         meetingTime.setOnClickListener(this);
 
         meetingDetail = (EditText) findViewById(R.id.register_detail);
+        meetingClub = (EditText) findViewById(R.id.register_meetingClub);
+        meetingTitle = (EditText) findViewById(R.id.register_meetingTitle);
 
         setDateTimeField();
 
@@ -75,8 +92,16 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, month, dayOfMonth);
                 // set day of week
-                Date today = new Date(year, month, dayOfMonth);
-                String dayOfWeek = dayOfWeekFormatter.format(today);
+                Date dayRegistered = new Date(year, month, dayOfMonth);
+                // Day of week as String with the first letter capitalized
+                String dayOfWeek = dayOfWeekFormatter.format(dayRegistered);
+
+
+                // Store them in protected variables
+                yearInput = year;
+                monthInput = month;
+                dayInput = dayOfMonth;
+                dayOfWeekInput = dayOfWeek;
 
 
                 meetingDate.setText(dateFomatter.format(newDate.getTime()));
@@ -121,5 +146,18 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
     public void cancelRegister(View view) {
         Intent intent = new Intent(this, DisplayScheduleActivity.class);
         startActivity(intent);
+    }
+
+    public void registerMeeting(View view) {
+        detailInput = meetingDetail.getText().toString();
+        titleInput = meetingTitle.getText().toString();
+        clubnameInput = meetingClub.getText().toString();
+        registeringUser = _loggedUser;
+
+        // save them into db
+        db.createSchedule(registeringUser.username, registeringUser.id, yearInput, monthInput, dayInput, dayOfWeekInput,
+                            _minuteInput, _hourInput, titleInput, detailInput, clubnameInput);
+
+
     }
 }

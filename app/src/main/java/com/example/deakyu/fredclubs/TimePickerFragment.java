@@ -10,6 +10,9 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
+import static com.example.deakyu.fredclubs.MeetingRegisterActivity._hourInput;
+import static com.example.deakyu.fredclubs.MeetingRegisterActivity._minuteInput;
+
 /**
  * Created by Deakyu on 12/7/2016.
  */
@@ -29,5 +32,8 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         EditText et = (EditText) getActivity().findViewById(R.id.etMeetingTime);
         et.setText(String.valueOf(hourOfDay) + ":" + String.valueOf(minute));
+
+        _minuteInput = minute;
+        _hourInput = hourOfDay;
     }
 }
