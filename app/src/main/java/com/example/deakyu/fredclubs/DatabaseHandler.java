@@ -225,4 +225,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         cursor.close();
         return scheduleList;
     }
+
+    public void deleteByUserIdAndDetail(int userId, String detail) {
+        SQLiteDatabase db = this.getWritableDatabase();
+//        db.execSQL("DELETE FROM schedules WHERE user_id=" + userId + " AND detail='" + detail + "'", null);
+        db.delete("schedules",
+                "user_id" + " = ? AND " + "detail" + " = ?",
+                new String[] {userId+"", detail});
+        db.close();
+    }
 }

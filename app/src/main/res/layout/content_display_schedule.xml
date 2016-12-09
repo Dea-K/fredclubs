@@ -56,12 +56,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Wed)"/>
-            <!--<LinearLayout-->
-                <!--android:id="@+id/ll_detail"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:orientation="vertical">-->
+                android:text="12/7/2016 (Sun)"/>
+            <LinearLayout
+                android:id="@+id/ll_sunday_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
                 <TextView
                     android:id="@+id/sunday_detail"
                     android:layout_width="match_parent"
@@ -71,97 +72,140 @@
                     android:gravity="center"
                     android:background="#aaf"
                     android:visibility="gone"/>
-            <!--</LinearLayout>-->
+            </LinearLayout>
 
             <Button
                 android:id="@+id/monday"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Wed)"/>
-            <TextView
-                android:id="@+id/monday_detail"
+                android:text="12/7/2016 (Mon)"/>
+            <LinearLayout
+                android:id="@+id/ll_monday_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="#aaf"/>
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/monday_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="#aaf"
+                    android:visibility="gone"/>
+            </LinearLayout>
             <Button
                 android:id="@+id/tuesday"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Wed)"/>
-            <TextView
-                android:id="@+id/tuesday_detail"
+                android:text="12/7/2016 (Tue)"/>
+            <LinearLayout
+                android:id="@+id/ll_tuesday_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="#aaf"
-                android:visibility="gone"/>
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/tuesday_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="#aaf"
+                    android:visibility="gone"/>
+            </LinearLayout>
             <Button
                 android:id="@+id/wednesday"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="12/7/2016 (Wed)"/>
-            <TextView
-                android:id="@+id/wednesday_detail"
+            <LinearLayout
+                android:id="@+id/ll_wednesday_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="#aaf"
-                android:visibility="gone"/>
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/wednesday_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="#aaf"
+                    android:visibility="gone"/>
+            </LinearLayout>
             <Button
                 android:id="@+id/thursday"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Wed)"/>
-            <TextView
-                android:id="@+id/thursday_detail"
+                android:text="12/7/2016 (Thu)"/>
+            <LinearLayout
+                android:id="@+id/ll_thursday_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="#aaf"
-                android:visibility="gone"/>
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/thursday_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="#aaf"
+                    android:visibility="gone"/>
+            </LinearLayout>
             <Button
                 android:id="@+id/friday"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Wed)"/>
-            <TextView
-                android:id="@+id/friday_detail"
+                android:text="12/7/2016 (Fri)"/>
+            <LinearLayout
+                android:id="@+id/ll_friday_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="#aaf"
-                android:visibility="gone"/>
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/friday_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="#aaf"
+                    android:visibility="gone"/>
+            </LinearLayout>
             <Button
                 android:id="@+id/saturday"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Wed)"/>
-            <TextView
-                android:id="@+id/saturday_detail"
+                android:text="12/7/2016 (Sat)"/>
+            <LinearLayout
+                android:id="@+id/ll_saturday_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="#aaf"
-                android:visibility="gone"/>
+                android:orientation="vertical"
+                android:visibility="gone">
+                <TextView
+                    android:id="@+id/saturday_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="#aaf"
+                    android:visibility="gone"/>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

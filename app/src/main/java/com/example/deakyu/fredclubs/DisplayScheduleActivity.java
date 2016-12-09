@@ -3,6 +3,7 @@ package com.example.deakyu.fredclubs;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -48,8 +49,19 @@ public class DisplayScheduleActivity extends AppCompatActivity {
     private TextView txtSaturday;
     private TextView txtSunday;
 
+    private LinearLayout llSunday;
+    private LinearLayout llMonday;
+    private LinearLayout llTuesday;
+    private LinearLayout llWednesday;
+    private LinearLayout llThursday;
+    private LinearLayout llFriday;
+    private LinearLayout llSaturday;
+
     private TextView txtUsername;
     final Context context_this = this;
+
+    protected ViewGroup.LayoutParams tvParams;
+    protected ViewGroup.MarginLayoutParams marginParams;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -105,9 +117,6 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             }
         });
 
-        // TODO
-        // Populate update/delete button only for the user who registered the meeting
-//        populateReviseDeleteButtons(12);
 
     }
 
@@ -151,17 +160,29 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         txtSaturday = (TextView) findViewById(R.id.saturday_detail);
         txtSunday = (TextView) findViewById(R.id.sunday_detail);
 
+        // LinearLayouts
+        llMonday = (LinearLayout) findViewById(R.id.ll_monday_detail);
+        llTuesday = (LinearLayout) findViewById(R.id.ll_tuesday_detail);
+        llWednesday = (LinearLayout) findViewById(R.id.ll_wednesday_detail);
+        llThursday = (LinearLayout) findViewById(R.id.ll_thursday_detail);
+        llFriday = (LinearLayout) findViewById(R.id.ll_friday_detail);
+        llSaturday = (LinearLayout) findViewById(R.id.ll_saturday_detail);
+        llSunday = (LinearLayout) findViewById(R.id.ll_sunday_detail);
+
         txtUsername = (TextView) findViewById(R.id.display_username);
+        tvParams = txtMonday.getLayoutParams();
+        marginParams = new ViewGroup.MarginLayoutParams(tvParams);
+        marginParams.setMargins(0, 0, 0, 10);
     }
 
     public void setVisiblePropertyForButtons() {
         btnMonday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtMonday.isShown()) {
-                    txtMonday.setVisibility(View.GONE);
+                if(llMonday.isShown()) {
+                    llMonday.setVisibility(View.GONE);
                 } else {
-                    txtMonday.setVisibility(View.VISIBLE);
+                    llMonday.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -169,10 +190,10 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnTuesday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtTuesday.isShown()) {
-                    txtTuesday.setVisibility(View.GONE);
+                if(llTuesday.isShown()) {
+                    llTuesday.setVisibility(View.GONE);
                 } else {
-                    txtTuesday.setVisibility(View.VISIBLE);
+                    llTuesday.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -180,10 +201,10 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnWednesday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtWednesday.isShown()) {
-                    txtWednesday.setVisibility(View.GONE);
+                if(llWednesday.isShown()) {
+                    llWednesday.setVisibility(View.GONE);
                 } else {
-                    txtWednesday.setVisibility(View.VISIBLE);
+                    llWednesday.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -191,10 +212,10 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnThursday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtThursday.isShown()) {
-                    txtThursday.setVisibility(View.GONE);
+                if(llThursday.isShown()) {
+                    llThursday.setVisibility(View.GONE);
                 } else {
-                    txtThursday.setVisibility(View.VISIBLE);
+                    llThursday.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -202,10 +223,10 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnFriday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtFriday.isShown()) {
-                    txtFriday.setVisibility(View.GONE);
+                if(llFriday.isShown()) {
+                    llFriday.setVisibility(View.GONE);
                 } else {
-                    txtFriday.setVisibility(View.VISIBLE);
+                    llFriday.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -213,10 +234,10 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnSaturday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtSaturday.isShown()) {
-                    txtSaturday.setVisibility(View.GONE);
+                if(llSaturday.isShown()) {
+                    llSaturday.setVisibility(View.GONE);
                 } else {
-                    txtSaturday.setVisibility(View.VISIBLE);
+                    llSaturday.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -224,10 +245,10 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnSunday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(txtSunday.isShown()) {
-                    txtSunday.setVisibility(View.GONE);
+                if(llSunday.isShown()) {
+                    llSunday.setVisibility(View.GONE);
                 } else {
-                    txtSunday.setVisibility(View.VISIBLE);
+                    llSunday.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -244,20 +265,13 @@ public class DisplayScheduleActivity extends AppCompatActivity {
     }
 
     public void removeFormerMeetings() {
-        txtMonday.setText("");
-        txtMonday.setVisibility(View.GONE);
-        txtTuesday.setText("");
-        txtTuesday.setVisibility(View.GONE);
-        txtWednesday.setText("");
-        txtWednesday.setVisibility(View.GONE);
-        txtThursday.setText("");
-        txtThursday.setVisibility(View.GONE);
-        txtFriday.setText("");
-        txtFriday.setVisibility(View.GONE);
-        txtSaturday.setText("");
-        txtSaturday.setVisibility(View.GONE);
-        txtSunday.setText("");
-        txtSunday.setVisibility(View.GONE);
+        llMonday.removeAllViews();
+        llTuesday.removeAllViews();
+        llWednesday.removeAllViews();
+        llThursday.removeAllViews();
+        llFriday.removeAllViews();
+        llSaturday.removeAllViews();
+        llSunday.removeAllViews();
     }
 
     public void populateButtons(List<Schedule> sch, Calendar currentDate) {
@@ -267,14 +281,21 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 + " (Monday)");
         for(int i=0 ; i < sch.size() ; i++) {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
-                txtMonday.setText(txtMonday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(marginParams);
+                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
                         + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
-                txtMonday.setVisibility(View.VISIBLE);
-//                if(sch.get(i).user_id == _loggedUser.id) {
-//                    txtMonday.setText(txtMonday.getText().toString() + ": by " + sch.get(i).username);
-//                }
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                tv.setVisibility(View.VISIBLE);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setBackgroundColor(getColor(R.color.colorPrimary));
+                tv.setTextColor(getColor(R.color.white));
+                llMonday.addView(tv);
+                if(sch.get(i).user_id == _loggedUser.id) {
+                    populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llMonday, currentDate);
+                }
+                llMonday.setVisibility(View.VISIBLE);
             }
         }
         /////////////////////////////////////////////////////////////////////////////////
@@ -283,11 +304,21 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 + " (Tuesday)");
         for(int i=0 ; i < sch.size() ; i++) {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
-                txtTuesday.setText(txtTuesday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(marginParams);
+                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
                         + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
-                txtTuesday.setVisibility(View.VISIBLE);
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                tv.setVisibility(View.VISIBLE);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setBackgroundColor(getColor(R.color.colorPrimary));
+                tv.setTextColor(getColor(R.color.white));
+                llTuesday.addView(tv);
+                if(sch.get(i).user_id == _loggedUser.id) {
+                    populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llTuesday, currentDate);
+                }
+                llTuesday.setVisibility(View.VISIBLE);
             }
         }
         /////////////////////////////////////////////////////////////////////////////////
@@ -296,11 +327,21 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 + " (Wednesday)");
         for(int i=0 ; i < sch.size() ; i++) {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
-                txtWednesday.setText(txtWednesday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(marginParams);
+                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
                         + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
-                txtWednesday.setVisibility(View.VISIBLE);
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                tv.setVisibility(View.VISIBLE);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setBackgroundColor(getColor(R.color.colorPrimary));
+                tv.setTextColor(getColor(R.color.white));
+                llWednesday.addView(tv);
+                if(sch.get(i).user_id == _loggedUser.id) {
+                    populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llWednesday, currentDate);
+                }
+                llWednesday.setVisibility(View.VISIBLE);
             }
         }
         /////////////////////////////////////////////////////////////////////////////////
@@ -309,11 +350,21 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 + " (Thursday)");
         for(int i=0 ; i < sch.size() ; i++) {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
-                txtThursday.setText(txtThursday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(marginParams);
+                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
                         + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
-                txtThursday.setVisibility(View.VISIBLE);
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                tv.setVisibility(View.VISIBLE);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setBackgroundColor(getColor(R.color.colorPrimary));
+                tv.setTextColor(getColor(R.color.white));
+                llThursday.addView(tv);
+                if(sch.get(i).user_id == _loggedUser.id) {
+                    populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llThursday, currentDate);
+                }
+                llThursday.setVisibility(View.VISIBLE);
             }
         }
         /////////////////////////////////////////////////////////////////////////////////
@@ -322,11 +373,21 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 + " (Friday)");
         for(int i=0 ; i < sch.size() ; i++) {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
-                txtFriday.setText(txtFriday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(marginParams);
+                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
                         + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
-                txtFriday.setVisibility(View.VISIBLE);
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                tv.setVisibility(View.VISIBLE);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setBackgroundColor(getColor(R.color.colorPrimary));
+                tv.setTextColor(getColor(R.color.white));
+                llFriday.addView(tv);
+                if(sch.get(i).user_id == _loggedUser.id) {
+                    populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llFriday, currentDate);
+                }
+                llFriday.setVisibility(View.VISIBLE);
             }
         }
         /////////////////////////////////////////////////////////////////////////////////
@@ -335,11 +396,21 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 + " (Saturday)");
         for(int i=0 ; i < sch.size() ; i++) {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
-                txtSaturday.setText(txtSaturday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(marginParams);
+                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
                         + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
-                txtSaturday.setVisibility(View.VISIBLE);
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                tv.setVisibility(View.VISIBLE);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setBackgroundColor(getColor(R.color.colorPrimary));
+                tv.setTextColor(getColor(R.color.white));
+                llSaturday.addView(tv);
+                if(sch.get(i).user_id == _loggedUser.id) {
+                    populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llSaturday, currentDate);
+                }
+                llSaturday.setVisibility(View.VISIBLE);
             }
         }
         /////////////////////////////////////////////////////////////////////////////////
@@ -348,31 +419,48 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 + " (Sunday)");
         for(int i=0 ; i < sch.size() ; i++) {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
-                txtSunday.setText(txtSunday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                TextView tv = new TextView(this);
+                tv.setLayoutParams(marginParams);
+                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
                         + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
-                txtSunday.setVisibility(View.VISIBLE);
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                tv.setVisibility(View.VISIBLE);
+                tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                tv.setBackgroundColor(getColor(R.color.colorPrimary));
+                tv.setTextColor(getColor(R.color.white));
+                llSunday.addView(tv);
+                if(sch.get(i).user_id == _loggedUser.id) {
+                    populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llSunday, currentDate);
+                }
+                llSunday.setVisibility(View.VISIBLE);
             }
         }
     }
 
-//    public void populateReviseDeleteButtons(int userId) {
-//        LinearLayout.LayoutParams RDButtonsParam = new LinearLayout.LayoutParams(0,
-//                ViewGroup.LayoutParams.MATCH_PARENT,
-//                1.0f);
-//        Button btnRevise = new Button(this);
-//        Button btnDelete = new Button(this);
-//        btnRevise.setText("Revise");
-//        btnRevise.setLayoutParams(RDButtonsParam);
-//        btnDelete.setText("Delete");
-//        btnDelete.setLayoutParams(RDButtonsParam);
-//
-//        LinearLayout ll = new LinearLayout(this);
-//        ll.setOrientation(LinearLayout.HORIZONTAL);
-//        ll.addView(btnRevise);
-//        ll.addView(btnDelete);
-//        LinearLayout detailLayout = (LinearLayout) findViewById(R.id.ll_detail);
-//        detailLayout.addView(ll);
-//    }
+    public void populateReviseDeleteButtons(final int userId, final String detail, LinearLayout tobepopulated,
+                                            final Calendar currentDate) {
+        LinearLayout.LayoutParams RDButtonsParam = new LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                1.0f);
+        Button btnDelete = new Button(this);
+        btnDelete.setLayoutParams(RDButtonsParam);
+        btnDelete.setText("Delete");
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context_this, "Delete Attemped", Toast.LENGTH_SHORT).show();
+                db.deleteByUserIdAndDetail(userId, detail);
+                // refresh the schedules
+                List<Schedule> newsch = db.getSchedulesOfWeekByDate(currentDate, currentDate.get(Calendar.YEAR));
+                removeFormerMeetings();
+                populateButtons(newsch, currentDate);
+            }
+        });
+
+        LinearLayout ll = new LinearLayout(this);
+        ll.setOrientation(LinearLayout.HORIZONTAL);
+        ll.addView(btnDelete);
+        tobepopulated.addView(ll);
+    }
 }
