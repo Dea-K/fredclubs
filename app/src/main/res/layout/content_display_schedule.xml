@@ -57,15 +57,22 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="12/7/2016 (Wed)"/>
-            <TextView
-                android:id="@+id/sunday_detail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:background="#aaf"
-                android:visibility="gone"/>
+            <!--<LinearLayout-->
+                <!--android:id="@+id/ll_detail"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical">-->
+                <TextView
+                    android:id="@+id/sunday_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:background="#aaf"
+                    android:visibility="gone"/>
+            <!--</LinearLayout>-->
+
             <Button
                 android:id="@+id/monday"
                 android:layout_width="match_parent"

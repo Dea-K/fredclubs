@@ -11,7 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -105,6 +107,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
 
         // TODO
         // Populate update/delete button only for the user who registered the meeting
+//        populateReviseDeleteButtons(12);
 
     }
 
@@ -354,4 +357,22 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         }
     }
 
+//    public void populateReviseDeleteButtons(int userId) {
+//        LinearLayout.LayoutParams RDButtonsParam = new LinearLayout.LayoutParams(0,
+//                ViewGroup.LayoutParams.MATCH_PARENT,
+//                1.0f);
+//        Button btnRevise = new Button(this);
+//        Button btnDelete = new Button(this);
+//        btnRevise.setText("Revise");
+//        btnRevise.setLayoutParams(RDButtonsParam);
+//        btnDelete.setText("Delete");
+//        btnDelete.setLayoutParams(RDButtonsParam);
+//
+//        LinearLayout ll = new LinearLayout(this);
+//        ll.setOrientation(LinearLayout.HORIZONTAL);
+//        ll.addView(btnRevise);
+//        ll.addView(btnDelete);
+//        LinearLayout detailLayout = (LinearLayout) findViewById(R.id.ll_detail);
+//        detailLayout.addView(ll);
+//    }
 }
