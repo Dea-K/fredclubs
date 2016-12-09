@@ -9,6 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/wood"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.deakyu.fredclubs.MeetingRegisterActivity"
@@ -24,6 +25,7 @@
             android:layout_weight="1"
             android:text="Author:"
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:gravity="center" />
         <TextView
             android:id="@+id/register_author"
@@ -31,6 +33,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
@@ -44,13 +47,15 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Meeting Title:"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
         <EditText
             android:id="@+id/register_meetingTitle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="@color/white"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,13 +68,15 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Date:"
-            android:textSize="24sp"/>
+            android:textSize="24sp"
+            android:textColor="@color/white"/>
         <EditText
             android:id="@+id/etMeetingDate"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
+            android:textColor="@color/white"
             android:hint="Click to Pick Date"/>
     </LinearLayout>
     <LinearLayout
@@ -83,6 +90,7 @@
             android:layout_weight="1"
             android:text="Club:"
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:gravity="center" />
         <EditText
             android:id="@+id/register_meetingClub"
@@ -102,6 +110,7 @@
             android:layout_weight="1"
             android:text="Time:"
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:gravity="center"/>
         <EditText
             android:id="@+id/etMeetingTime"
@@ -109,6 +118,7 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
+            android:textColor="@color/white"
             android:hint="Click to Pick Time"/>
     </LinearLayout>
     <TextView
@@ -118,6 +128,7 @@
         android:gravity="center"
         android:text="Details"
         android:textSize="24sp"
+        android:textColor="@color/white"
         android:textAlignment="center"/>
     <EditText
         android:id="@+id/register_detail"

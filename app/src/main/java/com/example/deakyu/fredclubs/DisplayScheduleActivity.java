@@ -320,6 +320,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 }
                 llTuesday.setVisibility(View.VISIBLE);
             }
+
         }
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);

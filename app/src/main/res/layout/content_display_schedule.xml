@@ -10,6 +10,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/wood"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.deakyu.fredclubs.DisplayScheduleActivity"
     tools:showIn="@layout/activity_display_schedule">
@@ -24,6 +25,7 @@
             android:layout_weight="1"
             android:text="Logged as: "
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:gravity="center"/>
         <TextView
             android:id="@+id/display_username"
@@ -31,6 +33,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:textSize="24sp"
+            android:textColor="@color/white"
             android:gravity="center"/>
     </LinearLayout>
     <TextView
