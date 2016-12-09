@@ -150,8 +150,10 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
     }
 
     public void cancelRegister(View view) {
-        Intent intent = new Intent(this, DisplayScheduleActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, DisplayScheduleActivity.class);
+//        startActivity(intent);
+        setResult(Activity.RESULT_CANCELED, getIntent());
+        this.finish();
     }
 
     public void registerMeeting(View view) {

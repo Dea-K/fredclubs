@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static com.example.deakyu.fredclubs.R.array.position;
 import static com.example.deakyu.fredclubs.UserHelper.db;
 
 public class RegisterActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -41,10 +42,12 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
 
         // set adapter for spinners
         ArrayAdapter Yadapter = ArrayAdapter.createFromResource(this, R.array.year, android.R.layout.simple_spinner_dropdown_item);
-        ArrayAdapter Padapter = ArrayAdapter.createFromResource(this, R.array.position, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter Padapter = ArrayAdapter.createFromResource(this, position, android.R.layout.simple_spinner_dropdown_item);
         yearSpinner.setAdapter(Yadapter);
+        yearSpinner.setSelection(0, false);
         yearSpinner.setOnItemSelectedListener(this);
         positionSpinner.setAdapter(Padapter);
+        positionSpinner.setSelection(0, false);
         positionSpinner.setOnItemSelectedListener(this);
     }
 

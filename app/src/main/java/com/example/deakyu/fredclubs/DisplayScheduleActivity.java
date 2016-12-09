@@ -73,6 +73,9 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             removeFormerMeetings();
             populateButtons(sch, ca);
         }
+        if(requestCode == 2 && resultCode == Activity.RESULT_CANCELED) {
+            Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -293,6 +296,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                tv.setBackgroundColor(getColor(R.color.back));
                 llMonday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llMonday, currentDate);
@@ -317,6 +321,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                tv.setBackgroundColor(getColor(R.color.back));
                 llTuesday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llTuesday, currentDate);
@@ -342,6 +347,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                tv.setBackgroundColor(getColor(R.color.back));
                 llWednesday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llWednesday, currentDate);
@@ -366,6 +372,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                tv.setBackgroundColor(getColor(R.color.back));
                 llThursday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llThursday, currentDate);
@@ -390,6 +397,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                tv.setBackgroundColor(getColor(R.color.back));
                 llFriday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llFriday, currentDate);
@@ -414,6 +422,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+                tv.setBackgroundColor(getColor(R.color.back));
                 llSaturday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llSaturday, currentDate);
@@ -437,6 +446,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
+                tv.setBackgroundColor(getColor(R.color.back));
                 tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                 llSunday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {

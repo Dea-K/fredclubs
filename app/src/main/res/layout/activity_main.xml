@@ -14,13 +14,13 @@
     tools:context="com.example.deakyu.fredclubs.MainActivity">
 
     <TextView
-        android:layout_width="250dp"
-        android:layout_height="65dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:padding="5dp"
         android:gravity="center"
         android:textAlignment="center"
-        android:textSize="48sp"
-        android:text="@string/app_name"
+        android:textSize="40sp"
+        android:text="Clubs Scheduler"
         android:textColor="@color/white"
         android:background="@color/fred"/>
     <!--<TextView-->
@@ -52,7 +52,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="24sp"/>
+            android:textSize="24sp"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -77,7 +78,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:textSize="24sp"/>
+            android:textSize="24sp"
+            android:textColor="@color/white"/>
     </LinearLayout>
     <Button
         android:layout_marginTop="30dp"
