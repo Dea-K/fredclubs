@@ -21,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 1 && resultCode == Activity.RESULT_OK) {
-            Toast.makeText(this, "Acount Created!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
         }
 
     }
 
     public void startRegister(View view) {
+        EditText usernameField = (EditText) findViewById(R.id.username_login);
+        EditText passwordField = (EditText) findViewById(R.id.password_login);
+        usernameField.setText("");
+        passwordField.setText("");
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivityForResult(intent, 1);
         // 1 -> id for RegisterActivity
@@ -44,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             passwordField.setText("");
             startActivity(display);
         } else {
-//            Toast.makeText(this, "Login Failed, Please Try Agin", Toast.LENGTH_LONG).show();
             Snackbar.make(view, "Login Failed, Please Try Again", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }

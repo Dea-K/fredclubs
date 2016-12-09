@@ -53,6 +53,10 @@ public class DisplayScheduleActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode == 2 && resultCode == Activity.RESULT_OK) {
             Toast.makeText(this, "Meeting Registered!", Toast.LENGTH_SHORT).show();
+            final Calendar ca = Calendar.getInstance();
+            List<Schedule> sch = db.getSchedulesOfWeekByDate(ca, ca.get(Calendar.YEAR));
+            removeFormerMeetings();
+            populateButtons(sch, ca);
         }
     }
 
@@ -76,11 +80,9 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 // 2 is the id for MeetingRegisterActivity
             }
         });
-        //////////////////////////////TESTING////////////////////////////////
         final Calendar ca = Calendar.getInstance();
         List<Schedule> sch = db.getSchedulesOfWeekByDate(ca, ca.get(Calendar.YEAR));
-        /////////////////////////////////////////////////////////////////////
-        populateButtons(sch, ca);  // set texts for buttons as current week
+        populateButtons(sch, ca);       // set texts for buttons as current week
         setVisiblePropertyForButtons(); // set onclicklisteners for the buttons
 
         btnPrevious.setOnClickListener(new View.OnClickListener() {
@@ -267,6 +269,9 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                         + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
                         + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
                 txtMonday.setVisibility(View.VISIBLE);
+//                if(sch.get(i).user_id == _loggedUser.id) {
+//                    txtMonday.setText(txtMonday.getText().toString() + ": by " + sch.get(i).username);
+//                }
             }
         }
         /////////////////////////////////////////////////////////////////////////////////
