@@ -1,5 +1,6 @@
 package com.example.deakyu.fredclubs;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
@@ -162,8 +163,8 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
         // save them into db
         db.createSchedule(registeringUser.username, registeringUser.id, yearInput, monthInput, dayInput, dayOfWeekInput,
                             _minuteInput, _hourInput, titleInput, detailInput, clubnameInput);
-        Intent intent = new Intent(this, DisplayScheduleActivity.class);
-        startActivity(intent);
+        setResult(Activity.RESULT_OK, getIntent());
+        this.finish();
 
     }
 }

@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(UserHelper.authenticateUser(username, password)) {
             Intent display = new Intent(this, DisplayScheduleActivity.class);
+            usernameField.setText("");
+            passwordField.setText("");
             startActivity(display);
         } else {
 //            Toast.makeText(this, "Login Failed, Please Try Agin", Toast.LENGTH_LONG).show();

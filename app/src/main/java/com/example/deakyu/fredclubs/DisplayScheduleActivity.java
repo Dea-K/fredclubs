@@ -1,5 +1,6 @@
 package com.example.deakyu.fredclubs;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -48,6 +50,13 @@ public class DisplayScheduleActivity extends AppCompatActivity {
     final Context context_this = this;
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode == 2 && resultCode == Activity.RESULT_OK) {
+            Toast.makeText(this, "Meeting Registered!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_schedule);
@@ -63,7 +72,8 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent registerSchedule = new Intent(context_this, MeetingRegisterActivity.class);
-                startActivity(registerSchedule);
+                startActivityForResult(registerSchedule, 2);
+                // 2 is the id for MeetingRegisterActivity
             }
         });
         //////////////////////////////TESTING////////////////////////////////
@@ -91,6 +101,9 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             }
         });
 
+        // TODO
+        // Populate update/delete button only for the user who registered the meeting
+
     }
 
     @Override
@@ -106,9 +119,8 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         if(id == R.id.action_signout) {
-            Intent intent = new Intent(this, MainActivity.class);
             _loggedUser = null;
-            startActivity(intent);
+            this.finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -218,13 +230,11 @@ public class DisplayScheduleActivity extends AppCompatActivity {
 
     public void getPreviousWeek(List<Schedule> sch, Calendar currentDate) {
         removeFormerMeetings();
-//        currentDate.add(Calendar.DAY_OF_YEAR, -7);
         populateButtons(sch, currentDate);
     }
 
     public void getNextWeek(List<Schedule> sch, Calendar currentDate) {
         removeFormerMeetings();
-//        currentDate.add(Calendar.DAY_OF_YEAR, +7);
         populateButtons(sch, currentDate);
     }
 
@@ -246,9 +256,6 @@ public class DisplayScheduleActivity extends AppCompatActivity {
     }
 
     public void populateButtons(List<Schedule> sch, Calendar currentDate) {
-        // get current week
-//        Calendar currentDate = Calendar.getInstance();
-
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
         btnMonday.setText((currentDate.get(Calendar.MONTH)+1) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)

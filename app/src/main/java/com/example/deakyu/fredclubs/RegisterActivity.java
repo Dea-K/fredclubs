@@ -60,8 +60,8 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
         String positionValue = positionSpinner.getSelectedItem().toString();
 
         // confirm if the username already exists
-        boolean isUsernameValid = db.isExistingUsername(usernameValue);
-        if(isUsernameValid) {
+        boolean isUsernameExist = db.isExistingUsername(usernameValue);
+        if(isUsernameExist) {
             Toast.makeText(this, "That username already exists", Toast.LENGTH_SHORT).show();
         } else {
             // confirm the passwords from both fields match
@@ -93,12 +93,5 @@ public class RegisterActivity extends AppCompatActivity implements AdapterView.O
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
-    }
-
-
-    public void testCalendar(View view) {
-        Intent intent = new Intent(Intent.ACTION_INSERT);
-        intent.setData(CalendarContract.Events.CONTENT_URI);
-        startActivity(intent);
     }
 }

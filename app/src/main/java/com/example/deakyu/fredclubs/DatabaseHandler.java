@@ -96,11 +96,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public boolean isExistingUsername(String username) {
         boolean result = false;
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT username FROM users", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM users", null);
         if(cursor.moveToFirst()) {
                 do {
-                    if (cursor.getString(0) == username) {
+                    if (username.equals(cursor.getString(1))) {
                         result = true;
+                        break;
                     }
                 } while(cursor.moveToNext());
             }
