@@ -287,9 +287,17 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
+
+                String amPm = "AM";
+                int Hour = sch.get(i).hour;
+                if(Hour > 11) {
+                    amPm = "PM";
+                    Hour-=12;
+                }
+
                 tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + "Time: \t" + String.valueOf(Hour) + ":" + String.valueOf(sch.get(i).minute) + " " + amPm + "\nClub: \t"
                         + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -312,9 +320,17 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
+
+                String amPm = "AM";
+                int Hour = sch.get(i).hour;
+                if(Hour > 11) {
+                    amPm = "PM";
+                    Hour-=12;
+                }
+
                 tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + "Time: \t" + String.valueOf(Hour) + ":" + String.valueOf(sch.get(i).minute) + " " + amPm + "\nClub: \t"
                         + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -338,9 +354,17 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
+
+                String amPm = "AM";
+                int Hour = sch.get(i).hour;
+                if(Hour > 11) {
+                    amPm = "PM";
+                    Hour-=12;
+                }
+
                 tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + "Time: \t" + String.valueOf(Hour) + ":" + String.valueOf(sch.get(i).minute) + " " + amPm + "\nClub: \t"
                         + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -363,9 +387,17 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
+
+                String amPm = "AM";
+                int Hour = sch.get(i).hour;
+                if(Hour > 11) {
+                    amPm = "PM";
+                    Hour-=12;
+                }
+
                 tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + "Time: \t" + String.valueOf(Hour) + ":" + String.valueOf(sch.get(i).minute) + " " + amPm + "\nClub: \t"
                         + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -388,9 +420,17 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
+
+                String amPm = "AM";
+                int Hour = sch.get(i).hour;
+                if(Hour > 11) {
+                    amPm = "PM";
+                    Hour-=12;
+                }
+
                 tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + "Time: \t" + String.valueOf(Hour) + ":" + String.valueOf(sch.get(i).minute) + " " + amPm + "\nClub: \t"
                         + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -413,9 +453,17 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
+
+                String amPm = "AM";
+                int Hour = sch.get(i).hour;
+                if(Hour > 11) {
+                    amPm = "PM";
+                    Hour-=12;
+                }
+
                 tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + "Time: \t" + String.valueOf(Hour) + ":" + String.valueOf(sch.get(i).minute) + " " + amPm + "\nClub: \t"
                         + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
@@ -438,9 +486,17 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
-                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: " +
+
+                String amPm = "AM";
+                int Hour = sch.get(i).hour;
+                if(Hour > 11) {
+                    amPm = "PM";
+                    Hour-=12;
+                }
+
+                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + "Time: \t" + String.valueOf(Hour) + ":" + String.valueOf(sch.get(i).minute) + " " + amPm + "\nClub: \t"
                         + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);

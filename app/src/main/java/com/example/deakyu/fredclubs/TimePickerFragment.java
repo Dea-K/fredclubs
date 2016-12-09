@@ -30,8 +30,15 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String amPm = "AM";
+        if(hourOfDay>11) {
+            amPm = "PM";
+            hourOfDay-=12;
+        }
+
+
         EditText et = (EditText) getActivity().findViewById(R.id.etMeetingTime);
-        et.setText(String.valueOf(hourOfDay) + ":" + String.valueOf(minute));
+        et.setText(String.valueOf(hourOfDay) + ":" + String.valueOf(minute) + " " + amPm);
 
         _minuteInput = minute;
         _hourInput = hourOfDay;
