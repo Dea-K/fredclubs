@@ -142,11 +142,18 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Setup Meeting!"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:background="@color/scheduleButtonGreen"
         android:onClick="registerMeeting"/>
     <Button
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cancel"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:background="@color/scheduleButtonGreen"
         android:onClick="cancelRegister"/>
 
 </LinearLayout>

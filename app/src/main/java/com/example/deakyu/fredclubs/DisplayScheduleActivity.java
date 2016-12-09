@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -283,14 +284,15 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
-                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
+                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                 llMonday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llMonday, currentDate);
@@ -306,14 +308,15 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
-                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
+                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                 llTuesday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llTuesday, currentDate);
@@ -330,14 +333,15 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
-                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
+                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                 llWednesday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llWednesday, currentDate);
@@ -353,14 +357,15 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
-                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
+                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                 llThursday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llThursday, currentDate);
@@ -376,14 +381,15 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
-                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
+                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                 llFriday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llFriday, currentDate);
@@ -399,14 +405,15 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
-                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
+                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: \t" +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                 llSaturday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llSaturday, currentDate);
@@ -422,14 +429,15 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
                 TextView tv = new TextView(this);
                 tv.setLayoutParams(marginParams);
-                tv.setText("Meeting Title: " + sch.get(i).title + "\nDate: " +
+                tv.setText("Meeting Title: \t" + sch.get(i).title + "\nDate: " +
                         String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
-                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
-                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail);
+                        + "Time: \t" + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: \t"
+                        + sch.get(i).club + "\nAuthor: \t" + sch.get(i).username + "\nDetail: \t" + sch.get(i).detail);
                 tv.setVisibility(View.VISIBLE);
                 tv.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 tv.setBackgroundColor(getColor(R.color.colorPrimary));
                 tv.setTextColor(getColor(R.color.white));
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
                 llSunday.addView(tv);
                 if(sch.get(i).user_id == _loggedUser.id) {
                     populateReviseDeleteButtons(sch.get(i).user_id, sch.get(i).detail, llSunday, currentDate);
@@ -443,8 +451,15 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                                             final Calendar currentDate) {
         LinearLayout.LayoutParams RDButtonsParam = new LinearLayout.LayoutParams(0,
                 ViewGroup.LayoutParams.MATCH_PARENT,
-                1.0f);
+                0.5f);
+        LinearLayout.LayoutParams paddingParam = new LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                0.25f);
         Button btnDelete = new Button(this);
+        TextView pad = new TextView(this);
+        TextView pad2 = new TextView(this);
+        pad.setLayoutParams(paddingParam);
+        pad2.setLayoutParams(paddingParam);
         btnDelete.setLayoutParams(RDButtonsParam);
         btnDelete.setText("Delete");
         btnDelete.setOnClickListener(new View.OnClickListener() {
@@ -461,7 +476,9 @@ public class DisplayScheduleActivity extends AppCompatActivity {
 
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.HORIZONTAL);
+        ll.addView(pad);
         ll.addView(btnDelete);
+        ll.addView(pad2);
         tobepopulated.addView(ll);
     }
 }

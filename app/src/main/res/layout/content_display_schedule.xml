@@ -59,7 +59,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Sun)"/>
+                android:text="12/7/2016 (Sun)"
+                android:textColor="@color/white"
+                android:background="@color/scheduleButtonGreen"/>
             <LinearLayout
                 android:id="@+id/ll_sunday_detail"
                 android:layout_width="match_parent"
@@ -82,7 +84,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Mon)"/>
+                android:text="12/7/2016 (Mon)"
+                android:textColor="@color/white"
+                android:background="@color/scheduleButtonGreen"/>
             <LinearLayout
                 android:id="@+id/ll_monday_detail"
                 android:layout_width="match_parent"
@@ -104,7 +108,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Tue)"/>
+                android:text="12/7/2016 (Tue)"
+                android:textColor="@color/white"
+                android:background="@color/scheduleButtonGreen"/>
             <LinearLayout
                 android:id="@+id/ll_tuesday_detail"
                 android:layout_width="match_parent"
@@ -126,7 +132,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Wed)"/>
+                android:text="12/7/2016 (Wed)"
+                android:textColor="@color/white"
+                android:background="@color/scheduleButtonGreen"/>
             <LinearLayout
                 android:id="@+id/ll_wednesday_detail"
                 android:layout_width="match_parent"
@@ -148,7 +156,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Thu)"/>
+                android:text="12/7/2016 (Thu)"
+                android:textColor="@color/white"
+                android:background="@color/scheduleButtonGreen"/>
             <LinearLayout
                 android:id="@+id/ll_thursday_detail"
                 android:layout_width="match_parent"
@@ -170,7 +180,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Fri)"/>
+                android:text="12/7/2016 (Fri)"
+                android:textColor="@color/white"
+                android:background="@color/scheduleButtonGreen"/>
             <LinearLayout
                 android:id="@+id/ll_friday_detail"
                 android:layout_width="match_parent"
@@ -192,7 +204,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="12/7/2016 (Sat)"/>
+                android:text="12/7/2016 (Sat)"
+                android:textColor="@color/white"
+                android:background="@color/scheduleButtonGreen"/>
             <LinearLayout
                 android:id="@+id/ll_saturday_detail"
                 android:layout_width="match_parent"

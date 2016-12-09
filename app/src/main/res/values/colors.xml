@@ -11,4 +11,5 @@
     <color name="spinnerColor">#e5e8b7</color>
     <color name="buttonBlue">#008CBA</color>
     <color name="buttonGreen">#4CAF50</color>
+    <color name="scheduleButtonGreen">#4d9a6a</color>
 </resources>
