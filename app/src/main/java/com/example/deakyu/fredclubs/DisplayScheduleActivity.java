@@ -14,11 +14,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import static com.example.deakyu.fredclubs.MeetingRegisterActivity._dayOfWeekFormatter;
 import static com.example.deakyu.fredclubs.User._loggedUser;
+import static com.example.deakyu.fredclubs.UserHelper.db;
 
 public class DisplayScheduleActivity extends AppCompatActivity {
 
@@ -53,7 +56,6 @@ public class DisplayScheduleActivity extends AppCompatActivity {
 
         populateViews();
         txtUsername.setText( _loggedUser.username);
-        populateButtons();  // set texts for buttons as current week
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +65,12 @@ public class DisplayScheduleActivity extends AppCompatActivity {
                 startActivity(registerSchedule);
             }
         });
+        //////////////////////////////TESTING////////////////////////////////
+        Calendar ca = Calendar.getInstance();
+        List<Schedule> sch = db.getSchedulesOfWeekByDate(ca.get(Calendar.YEAR), ca.get(Calendar.MONTH)+1, ca.get(Calendar.DAY_OF_MONTH));
+        /////////////////////////////////////////////////////////////////////
+        populateButtons(sch);  // set texts for buttons as current week
+        setVisiblePropertyForButtons(); // set onclicklisteners for the buttons
 
     }
 
@@ -110,42 +118,180 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         txtUsername = (TextView) findViewById(R.id.display_username);
     }
 
-    public void populateButtons() {
+    public void setVisiblePropertyForButtons() {
+        btnMonday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtMonday.isShown()) {
+                    txtMonday.setVisibility(View.GONE);
+                } else {
+                    txtMonday.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btnTuesday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtTuesday.isShown()) {
+                    txtTuesday.setVisibility(View.GONE);
+                } else {
+                    txtTuesday.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btnWednesday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtWednesday.isShown()) {
+                    txtWednesday.setVisibility(View.GONE);
+                } else {
+                    txtWednesday.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btnThursday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtThursday.isShown()) {
+                    txtThursday.setVisibility(View.GONE);
+                } else {
+                    txtThursday.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btnFriday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtFriday.isShown()) {
+                    txtFriday.setVisibility(View.GONE);
+                } else {
+                    txtFriday.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btnSaturday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtSaturday.isShown()) {
+                    txtSaturday.setVisibility(View.GONE);
+                } else {
+                    txtSaturday.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btnSunday.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(txtSunday.isShown()) {
+                    txtSunday.setVisibility(View.GONE);
+                } else {
+                    txtSunday.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+    }
+
+    public void populateButtons(List<Schedule> sch) {
         // get current week
         Calendar currentDate = Calendar.getInstance();
 
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-        btnMonday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+        btnMonday.setText((currentDate.get(Calendar.MONTH)+1) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
                 + " (Monday)");
+        for(int i=0 ; i < sch.size() ; i++) {
+            if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
+                txtMonday.setText(txtMonday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                        String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
+                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
+                txtMonday.setVisibility(View.VISIBLE);
+            }
+        }
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
-        btnTuesday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+        btnTuesday.setText((currentDate.get(Calendar.MONTH)+1) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
                 + " (Tuesday)");
+        for(int i=0 ; i < sch.size() ; i++) {
+            if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
+                txtTuesday.setText(txtTuesday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                        String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
+                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
+                txtTuesday.setVisibility(View.VISIBLE);
+            }
+        }
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
-        btnWednesday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+        btnWednesday.setText((currentDate.get(Calendar.MONTH)+1) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
                 + " (Wednesday)");
+        for(int i=0 ; i < sch.size() ; i++) {
+            if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
+                txtWednesday.setText(txtWednesday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                        String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
+                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
+                txtWednesday.setVisibility(View.VISIBLE);
+            }
+        }
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
-        btnThursday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+        btnThursday.setText((currentDate.get(Calendar.MONTH)+1) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
                 + " (Thursday)");
+        for(int i=0 ; i < sch.size() ; i++) {
+            if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
+                txtThursday.setText(txtThursday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                        String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
+                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
+                txtThursday.setVisibility(View.VISIBLE);
+            }
+        }
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
-        btnFriday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+        btnFriday.setText((currentDate.get(Calendar.MONTH)+1) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
                 + " (Friday)");
+        for(int i=0 ; i < sch.size() ; i++) {
+            if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
+                txtFriday.setText(txtFriday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                        String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
+                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
+                txtFriday.setVisibility(View.VISIBLE);
+            }
+        }
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
-        btnSaturday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+        btnSaturday.setText((currentDate.get(Calendar.MONTH)+1) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
                 + " (Saturday)");
+        for(int i=0 ; i < sch.size() ; i++) {
+            if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
+                txtSaturday.setText(txtSaturday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                        String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
+                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
+                txtSaturday.setVisibility(View.VISIBLE);
+            }
+        }
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-        btnSunday.setText(currentDate.get(Calendar.MONTH) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
+        btnSunday.setText((currentDate.get(Calendar.MONTH)+1) + "/" + currentDate.get(Calendar.DAY_OF_MONTH)
                 + " (Sunday)");
-    }
-
-    public void populateSchedules() {
-        
+        for(int i=0 ; i < sch.size() ; i++) {
+            if(sch.get(i).day == currentDate.get(Calendar.DAY_OF_MONTH)) {
+                txtSunday.setText(txtSunday.getText().toString() + "Meeting Title: " + sch.get(i).title + "\nDate: " +
+                        String.valueOf(sch.get(i).month) + "/" + String.valueOf(sch.get(i).day) + " (" + sch.get(i).dayofweek + ")\n"
+                        + "Time: " + String.valueOf(sch.get(i).hour) + ":" + String.valueOf(sch.get(i).minute) + "\nClub: "
+                        + sch.get(i).club + "\nAuthor: " + sch.get(i).username + "\nDetail: " + sch.get(i).detail + "\n\n");
+                txtSunday.setVisibility(View.VISIBLE);
+            }
+        }
     }
 
 }

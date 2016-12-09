@@ -59,7 +59,7 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
         setSupportActionBar(toolbar);
 
         _dateFomatter = new SimpleDateFormat("dd-MM-yyyy", Locale.US);
-        _dayOfWeekFormatter = new SimpleDateFormat("EEEE", Locale.US);
+        _dayOfWeekFormatter = new SimpleDateFormat("EE", Locale.US);
 
         meetingDate = (EditText) findViewById(R.id.etMeetingDate);
         meetingDate.setInputType(InputType.TYPE_NULL);
@@ -96,19 +96,20 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
                 Calendar newDate = Calendar.getInstance();
                 newDate.set(year, month, dayOfMonth);
                 // set day of week
-                Date dayRegistered = new Date(year, month, dayOfMonth);
+                Date dayRegistered = newDate.getTime();
                 // Day of week as String with the first letter capitalized
                 String dayOfWeek = _dayOfWeekFormatter.format(dayRegistered);
 
 
                 // Store them in protected variables
                 yearInput = year;
-                monthInput = month;
+                monthInput = month+1;
                 dayInput = dayOfMonth;
                 dayOfWeekInput = dayOfWeek;
 
 
-                meetingDate.setText(_dateFomatter.format(newDate.getTime()));
+                meetingDate.setText(String.valueOf(yearInput) + "/" + String.valueOf(monthInput)
+                        + "/" + String.valueOf(dayInput));
                 meetingDate.setText(meetingDate.getText() + " (" + dayOfWeek + ")");
             }
         }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
@@ -161,7 +162,8 @@ public class MeetingRegisterActivity extends AppCompatActivity implements View.O
         // save them into db
         db.createSchedule(registeringUser.username, registeringUser.id, yearInput, monthInput, dayInput, dayOfWeekInput,
                             _minuteInput, _hourInput, titleInput, detailInput, clubnameInput);
-
+        Intent intent = new Intent(this, DisplayScheduleActivity.class);
+        startActivity(intent);
 
     }
 }

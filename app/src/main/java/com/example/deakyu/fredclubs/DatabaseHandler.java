@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,7 +38,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE schedules (id INTEGER PRIMARY KEY AUTOINCREMENT, "
         + "username TEXT, user_id INTEGER, year INTEGER, month INTEGER, day INTEGER, "
-        + "dayofweek TEXT, minute INTEGER, hour INTEGER, title TEXT, detail TEXT, club TEXT");
+        + "dayofweek TEXT, minute INTEGER, hour INTEGER, title TEXT, detail TEXT, club TEXT)");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -104,5 +106,125 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             }
         cursor.close();
         return result;
+    }
+
+    public List<Schedule> getSchedulesOfWeekByDate(int year, int month, int day) {
+        List<Schedule> scheduleList = new ArrayList<Schedule>();
+//        Date today = new Date(year, month+1, day);
+        Calendar cal = Calendar.getInstance();
+//        cal.setTime(today);
+        SQLiteDatabase db = this.getReadableDatabase();
+
+
+        // Monday
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+        int _day = cal.get(Calendar.DAY_OF_MONTH);
+        int _month = cal.get(Calendar.MONTH)+1;
+        int _year = year;
+        Cursor cursor = db.rawQuery("SELECT * FROM schedules WHERE year=" + _year + " AND month=" + _month + " AND day=" + _day + ";", null);
+        if(cursor.moveToFirst()) {
+            do{
+            Schedule sch = new Schedule(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4),
+                    cursor.getInt(5), cursor.getString(6), cursor.getInt(7), cursor.getInt(8), cursor.getString(9), cursor.getString(10),
+                    cursor.getString(11));
+            scheduleList.add(sch);
+            } while(cursor.moveToNext());
+        }
+        // Tuesday
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.TUESDAY);
+        _day = cal.get(Calendar.DAY_OF_MONTH);
+        _month = cal.get(Calendar.MONTH)+1;
+        cursor = db.rawQuery("SELECT * FROM schedules WHERE year=" + _year + " AND month=" + _month + " AND day=" + _day + ";", null);
+        if(cursor.moveToFirst()) {
+            do{
+                Schedule sch = new Schedule(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4),
+                        cursor.getInt(5), cursor.getString(6), cursor.getInt(7), cursor.getInt(8), cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11));
+                scheduleList.add(sch);
+            } while(cursor.moveToNext());
+        }
+        // Wednesday
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
+        _day = cal.get(Calendar.DAY_OF_MONTH);
+        _month = cal.get(Calendar.MONTH)+1;
+        cursor = db.rawQuery("SELECT * FROM schedules WHERE year=" + _year + " AND month=" + _month + " AND day=" + _day + ";", null);
+        if(cursor.moveToFirst()) {
+            do{
+                Schedule sch = new Schedule(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4),
+                        cursor.getInt(5), cursor.getString(6), cursor.getInt(7), cursor.getInt(8), cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11));
+                scheduleList.add(sch);
+            } while(cursor.moveToNext());
+        }
+        // Thursday
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.THURSDAY);
+        _day = cal.get(Calendar.DAY_OF_MONTH);
+        _month = cal.get(Calendar.MONTH)+1;
+        cursor = db.rawQuery("SELECT * FROM schedules WHERE year=" + _year + " AND month=" + _month + " AND day=" + _day + ";", null);
+        if(cursor.moveToFirst()) {
+            do{
+                Schedule sch = new Schedule(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4),
+                        cursor.getInt(5), cursor.getString(6), cursor.getInt(7), cursor.getInt(8), cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11));
+                scheduleList.add(sch);
+            } while(cursor.moveToNext());
+        }
+        // Friday
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.FRIDAY);
+        _day = cal.get(Calendar.DAY_OF_MONTH);
+        _month = cal.get(Calendar.MONTH)+1;
+        cursor = db.rawQuery("SELECT * FROM schedules WHERE year=" + _year + " AND month=" + _month + " AND day=" + _day + ";", null);
+        if(cursor.moveToFirst()) {
+            do{
+                Schedule sch = new Schedule(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4),
+                        cursor.getInt(5), cursor.getString(6), cursor.getInt(7), cursor.getInt(8), cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11));
+                scheduleList.add(sch);
+            } while(cursor.moveToNext());
+        }
+        // Saturday
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+        _day = cal.get(Calendar.DAY_OF_MONTH);
+        _month = cal.get(Calendar.MONTH)+1;
+        cursor = db.rawQuery("SELECT * FROM schedules WHERE year=" + _year + " AND month=" + _month + " AND day=" + _day + ";", null);
+        if(cursor.moveToFirst()) {
+            do{
+                Schedule sch = new Schedule(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4),
+                        cursor.getInt(5), cursor.getString(6), cursor.getInt(7), cursor.getInt(8), cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11));
+                scheduleList.add(sch);
+            } while(cursor.moveToNext());
+        }
+        // Sunday
+        cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+        _day = cal.get(Calendar.DAY_OF_MONTH);
+        _month = cal.get(Calendar.MONTH)+1;
+        cursor = db.rawQuery("SELECT * FROM schedules WHERE year=" + _year + " AND month=" + _month + " AND day=" + _day + ";", null);
+        if(cursor.moveToFirst()) {
+            do{
+                Schedule sch = new Schedule(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4),
+                        cursor.getInt(5), cursor.getString(6), cursor.getInt(7), cursor.getInt(8), cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11));
+                scheduleList.add(sch);
+            } while(cursor.moveToNext());
+        }
+        cursor.close();
+        return scheduleList;
+    }
+
+    public List<Schedule> getAllSchedules() {
+        List<Schedule> scheduleList = new ArrayList<Schedule>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM schedules", null);
+        if(cursor.moveToFirst()) {
+            do{
+                Schedule schedule = new Schedule(cursor.getInt(0), cursor.getString(1), cursor.getInt(2), cursor.getInt(3), cursor.getInt(4),
+                        cursor.getInt(5), cursor.getString(6), cursor.getInt(7), cursor.getInt(8), cursor.getString(9), cursor.getString(10),
+                        cursor.getString(11));
+                scheduleList.add(schedule);
+            } while(cursor.moveToNext());
+        }
+        cursor.close();
+        return scheduleList;
     }
 }
