@@ -76,6 +76,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnPrevious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ca.add(Calendar.DAY_OF_YEAR, -7);
                 getPreviousWeek(sch, ca);
             }
         });
@@ -83,6 +84,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ca.add(Calendar.DAY_OF_YEAR, +7);
                 getNextWeek(sch, ca);
             }
         });
@@ -213,14 +215,14 @@ public class DisplayScheduleActivity extends AppCompatActivity {
     }
 
     public void getPreviousWeek(List<Schedule> sch, Calendar currentDate) {
-        currentDate.add(Calendar.DAY_OF_YEAR, -7);
         removeFormerMeetings();
+//        currentDate.add(Calendar.DAY_OF_YEAR, -7);
         populateButtons(sch, currentDate);
     }
 
     public void getNextWeek(List<Schedule> sch, Calendar currentDate) {
-        currentDate.add(Calendar.DAY_OF_YEAR, +7);
         removeFormerMeetings();
+//        currentDate.add(Calendar.DAY_OF_YEAR, +7);
         populateButtons(sch, currentDate);
     }
 
