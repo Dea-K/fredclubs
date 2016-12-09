@@ -108,11 +108,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return result;
     }
 
-    public List<Schedule> getSchedulesOfWeekByDate(int year, int month, int day) {
+    public List<Schedule> getSchedulesOfWeekByDate(Calendar cal, int year) {
         List<Schedule> scheduleList = new ArrayList<Schedule>();
-//        Date today = new Date(year, month+1, day);
-        Calendar cal = Calendar.getInstance();
-//        cal.setTime(today);
         SQLiteDatabase db = this.getReadableDatabase();
 
 

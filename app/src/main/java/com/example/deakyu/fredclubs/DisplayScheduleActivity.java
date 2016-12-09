@@ -68,7 +68,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         });
         //////////////////////////////TESTING////////////////////////////////
         final Calendar ca = Calendar.getInstance();
-        final List<Schedule> sch = db.getSchedulesOfWeekByDate(ca.get(Calendar.YEAR), ca.get(Calendar.MONTH)+1, ca.get(Calendar.DAY_OF_MONTH));
+        List<Schedule> sch = db.getSchedulesOfWeekByDate(ca, ca.get(Calendar.YEAR));
         /////////////////////////////////////////////////////////////////////
         populateButtons(sch, ca);  // set texts for buttons as current week
         setVisiblePropertyForButtons(); // set onclicklisteners for the buttons
@@ -77,6 +77,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ca.add(Calendar.DAY_OF_YEAR, -7);
+                List<Schedule> sch = db.getSchedulesOfWeekByDate(ca, ca.get(Calendar.YEAR));
                 getPreviousWeek(sch, ca);
             }
         });
@@ -85,6 +86,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ca.add(Calendar.DAY_OF_YEAR, +7);
+                List<Schedule> sch = db.getSchedulesOfWeekByDate(ca, ca.get(Calendar.YEAR));
                 getNextWeek(sch, ca);
             }
         });
