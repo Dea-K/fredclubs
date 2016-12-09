@@ -57,6 +57,7 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         populateViews();
         txtUsername.setText( _loggedUser.username);
 
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,11 +67,25 @@ public class DisplayScheduleActivity extends AppCompatActivity {
             }
         });
         //////////////////////////////TESTING////////////////////////////////
-        Calendar ca = Calendar.getInstance();
-        List<Schedule> sch = db.getSchedulesOfWeekByDate(ca.get(Calendar.YEAR), ca.get(Calendar.MONTH)+1, ca.get(Calendar.DAY_OF_MONTH));
+        final Calendar ca = Calendar.getInstance();
+        final List<Schedule> sch = db.getSchedulesOfWeekByDate(ca.get(Calendar.YEAR), ca.get(Calendar.MONTH)+1, ca.get(Calendar.DAY_OF_MONTH));
         /////////////////////////////////////////////////////////////////////
-        populateButtons(sch);  // set texts for buttons as current week
+        populateButtons(sch, ca);  // set texts for buttons as current week
         setVisiblePropertyForButtons(); // set onclicklisteners for the buttons
+
+        btnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getPreviousWeek(sch, ca);
+            }
+        });
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getNextWeek(sch, ca);
+            }
+        });
 
     }
 
@@ -104,8 +119,8 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         btnSaturday = (Button) findViewById(R.id.saturday);
         btnSunday = (Button) findViewById(R.id.sunday);
 
-//        btnPrevious = (Button) findViewById(R.id.previous_week);
-//        btnNext = (Button) findViewById(R.id.next_week);
+        btnPrevious = (Button) findViewById(R.id.previous_week);
+        btnNext = (Button) findViewById(R.id.next_week);
 
         txtMonday = (TextView) findViewById(R.id.monday_detail);
         txtTuesday = (TextView) findViewById(R.id.tuesday_detail);
@@ -197,9 +212,38 @@ public class DisplayScheduleActivity extends AppCompatActivity {
         });
     }
 
-    public void populateButtons(List<Schedule> sch) {
+    public void getPreviousWeek(List<Schedule> sch, Calendar currentDate) {
+        currentDate.add(Calendar.DAY_OF_YEAR, -7);
+        removeFormerMeetings();
+        populateButtons(sch, currentDate);
+    }
+
+    public void getNextWeek(List<Schedule> sch, Calendar currentDate) {
+        currentDate.add(Calendar.DAY_OF_YEAR, +7);
+        removeFormerMeetings();
+        populateButtons(sch, currentDate);
+    }
+
+    public void removeFormerMeetings() {
+        txtMonday.setText("");
+        txtMonday.setVisibility(View.GONE);
+        txtTuesday.setText("");
+        txtTuesday.setVisibility(View.GONE);
+        txtWednesday.setText("");
+        txtWednesday.setVisibility(View.GONE);
+        txtThursday.setText("");
+        txtThursday.setVisibility(View.GONE);
+        txtFriday.setText("");
+        txtFriday.setVisibility(View.GONE);
+        txtSaturday.setText("");
+        txtSaturday.setVisibility(View.GONE);
+        txtSunday.setText("");
+        txtSunday.setVisibility(View.GONE);
+    }
+
+    public void populateButtons(List<Schedule> sch, Calendar currentDate) {
         // get current week
-        Calendar currentDate = Calendar.getInstance();
+//        Calendar currentDate = Calendar.getInstance();
 
         /////////////////////////////////////////////////////////////////////////////////
         currentDate.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
